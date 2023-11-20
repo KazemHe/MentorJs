@@ -18,12 +18,15 @@ export function loadCodeBlocks() {
 }
 
 export function saveCodeBlock(codeBlock) {
+
+  console.log('codeBlock',codeBlock)
   return async (dispatch) => {
     try {
       const updatedCodeBlock = await codeBlockesService.save(codeBlock);
       const action = {
         type: UPDATE_CODE,
-        updatedCodeBlock,
+        codeBlock: updatedCodeBlock,
+        
       };
       dispatch(action);
     } catch (error) {

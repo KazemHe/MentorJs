@@ -1,8 +1,7 @@
 import { utilService } from "../services/util.service";
-import {KEY_STORAGE } from '../services/code.block.service'
 const codeBlocks = [
   {
-    id: "58",
+    _id: "58",
     title: "Async Case ",
     instruction: "Create a function that resolves a promise after 2 seconds.",
     starter: `
@@ -23,7 +22,7 @@ const codeBlocks = [
     `,
   },
   {
-    id: "61",
+    _id: "_61",
     title: " JS OOP ",
     instruction:
       "call Person that takes firstName and lastName as parameters and sets them as properties on the created object.",
@@ -53,7 +52,7 @@ const codeBlocks = [
       `,
   },
   {
-    id: "55",
+    _id: "_55",
     title: "Array Method Practice",
     instruction:
       "Practice using array.filter() to filter elements greater than 2 from an array of numbers.",
@@ -67,7 +66,7 @@ const codeBlocks = [
         `,
   },
   {
-    id: "57",
+    _id: "_57",
     title: "String Method Practice",
     instruction: "Use string methods to convert a string to uppercase.",
     starter: `
@@ -81,7 +80,7 @@ const codeBlocks = [
   },
 
   {
-    id: "63",
+    _id: "63",
     title: "Conditional Statement",
     instruction:
       "Create a function to check if a number is positive, negative, or zero.",
@@ -106,12 +105,12 @@ const codeBlocks = [
           }
       
           const num = 7;
-          const result = checkNumberType(num);
-          console.log(result); // Output will be 'positive' as num is greater than zero
+          const result = checkNumberType(num)
+          console.log(result); // Output should be 'positive', 'negative', or 'zero'
         `,
   },
   {
-    id: "60",
+    _id: "60",
     title: "Array Sort",
     instruction: "Use array.sort() to sort elements in an array.",
     starter: `
@@ -121,11 +120,10 @@ const codeBlocks = [
     solution: `
       const unsortedArray = [3, 1, 4, 2, 5];
       const sortedArray = unsortedArray.sort((a, b) => a - b);
-      // For descending order: unsortedArray.sort((a, b) => b - a);
     `,
   },
 ];
 
 export default codeBlocks;
 
-utilService.saveToStorage('codeblockes', codeBlocks);
+utilService.saveToStorage("codeblockes", codeBlocks);
