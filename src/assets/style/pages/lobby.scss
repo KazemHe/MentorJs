@@ -1,0 +1,36 @@
+/* lobby.scss */
+.lobby-container {
+    margin-top: 1rem ;
+    height: 96vh;
+  
+    /* Define styles for code block items */
+    .code-block-item {
+      text-decoration: none;
+      color: #333; /* Set the text color */
+      transition: transform 0.3s ease-in-out;
+      text-align: center;
+  
+      &:hover {
+        transform: scale(1.09); /* Add a hover effect */
+      }
+    }
+  
+    .block-item {
+      border: 1px solid #ccc; 
+      padding: 20px; 
+      background-color: rgb(245, 245, 245); 
+      border-radius: 8px; 
+      height: 50%; 
+      margin: 1em;
+    }
+  
+    /* Media query for responsiveness - switch to one column on smaller screens */
+    @media (max-width: 768px) {
+      .block-item {
+        // margin-bottom: 2px; 
+        padding: .5rem; 
+        margin: .2em;
+      }
+    }
+  }
+  

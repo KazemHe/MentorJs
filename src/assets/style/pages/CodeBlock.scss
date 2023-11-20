@@ -1,0 +1,24 @@
+@import '~highlight.js/styles/default.css';
+
+.pre-container {
+  height: 93vh;
+  margin-top: 1rem;
+}
+
+.code-container {
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  overflow-x: auto;
+
+  code {
+    font-size: 14px;
+    font-family: 'Courier New', monospace;
+    color: #333;
+  }
+}
+
+
+.code-block-buttons{
+    display: flex;
+}
