@@ -1,9 +1,30 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; 
-import { Grid } from '@mui/material';
-import '../assets/style/pages/lobby.scss';
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Grid } from "@mui/material";
+import "../assets/style/pages/lobby.scss";
+import { loadCodeBlocks } from "../store/actions/codeBlockActions";
+import { useSelector, useDispatch } from "react-redux";
+import CircularProgress from "@mui/material/CircularProgress";
 
-function Lobby({ codeBlocks }) {
+function Lobby() {
+  const dispatch = useDispatch();
+  const codeBlocks = useSelector(
+    (storeState) => storeState.codeBlockModule.codeBlocks
+  );
+
+  useEffect(() => {
+    dispatch(loadCodeBlocks());
+  }, [dispatch]);
+
+  // Check if codeBlocks is undefined or an empty array before mapping
+  if (!codeBlocks || codeBlocks.length === 0) {
+    return (
+      <div>
+        <CircularProgress />
+      </div>
+    ); // or any other loading indicator
+  }
+
   return (
     <div className="lobby-container">
       <Grid container spacing={2} justifyContent="center">

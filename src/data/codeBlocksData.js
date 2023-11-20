@@ -1,8 +1,10 @@
+import { utilService } from "../services/util.service";
+import {KEY_STORAGE } from '../services/code.block.service'
 const codeBlocks = [
   {
-    id: '58',
-    title: 'Async Case ',
-    instruction: 'Create a function that resolves a promise after 2 seconds.',
+    id: "58",
+    title: "Async Case ",
+    instruction: "Create a function that resolves a promise after 2 seconds.",
     starter: `
       function delayedResolve() {
         // Your code here
@@ -20,11 +22,12 @@ const codeBlocks = [
       delayedResolve().then(result => console.log(result)); // Prints 'Promise resolved after 2 seconds' after 2 seconds
     `,
   },
-    {
-      id: '61',
-      title: ' JS OOP ',
-      instruction: 'call Person that takes firstName and lastName as parameters and sets them as properties on the created object.',
-      starter: `
+  {
+    id: "61",
+    title: " JS OOP ",
+    instruction:
+      "call Person that takes firstName and lastName as parameters and sets them as properties on the created object.",
+    starter: `
         function Person(firstName, lastName) {
   
           // complete the code here
@@ -37,7 +40,7 @@ const codeBlocks = [
   
   
       `,
-      solution: `
+    solution: `
         // JavaScript OOP example
         function Person(firstName, lastName) {
           this.firstName = firstName;
@@ -48,39 +51,41 @@ const codeBlocks = [
         const personInstance = new Person('John', 'Doe');
         console.log(personInstance.firstName, personInstance.lastName); // Output: John Doe
       `,
-    },
-    {
-        id:'55',
-        title: 'Array Method Practice',
-        instruction: 'Practice using array.filter() to filter elements greater than 2 from an array of numbers.',
-        starter: `
+  },
+  {
+    id: "55",
+    title: "Array Method Practice",
+    instruction:
+      "Practice using array.filter() to filter elements greater than 2 from an array of numbers.",
+    starter: `
           const numbers = [1, 2, 3, 4, 5];
           const filteredNumbers // Your code here
         `,
-        solution: `
+    solution: `
           const numbers = [1, 2, 3, 4, 5];
           const filteredNumbers = numbers.filter(number => number > 2);
         `,
-      },
-      {
-        id: '57',
-        title: 'String Method Practice',
-        instruction: 'Use string methods to convert a string to uppercase.',
-        starter: `
+  },
+  {
+    id: "57",
+    title: "String Method Practice",
+    instruction: "Use string methods to convert a string to uppercase.",
+    starter: `
           const text = 'hello, world!';
           let uppercaseText // Your code here
         `,
-        solution: `
+    solution: `
           const text = 'hello, world!';
           let uppercaseText = text.toUpperCase();
         `,
-      },
-     
-      {
-        id: '63',
-        title: 'Conditional Statement',
-        instruction: 'Create a function to check if a number is positive, negative, or zero.',
-        starter: `
+  },
+
+  {
+    id: "63",
+    title: "Conditional Statement",
+    instruction:
+      "Create a function to check if a number is positive, negative, or zero.",
+    starter: `
           function checkNumberType(number) {
             // Your code here
           }
@@ -89,7 +94,7 @@ const codeBlocks = [
           const result = checkNumberType(num);
           console.log(result); // Output should be 'positive', 'negative', or 'zero'
         `,
-        solution: `
+    solution: `
           function checkNumberType(number) {
             if (number > 0) {
               return 'positive';
@@ -104,11 +109,11 @@ const codeBlocks = [
           const result = checkNumberType(num);
           console.log(result); // Output will be 'positive' as num is greater than zero
         `,
-      },
-      {
-    id: '60',
-    title: 'Array Sort',
-    instruction: 'Use array.sort() to sort elements in an array.',
+  },
+  {
+    id: "60",
+    title: "Array Sort",
+    instruction: "Use array.sort() to sort elements in an array.",
     starter: `
       const unsortedArray = [3, 1, 4, 2, 5];
       const sortedArray // Your code here
@@ -119,11 +124,8 @@ const codeBlocks = [
       // For descending order: unsortedArray.sort((a, b) => b - a);
     `,
   },
-     
+];
 
+export default codeBlocks;
 
-  
-
-  ];
-  
-  export default codeBlocks;
+utilService.saveToStorage('codeblockes', codeBlocks);
