@@ -1,7 +1,7 @@
 module.exports = {
-  dbURL: 'mongodb://127.0.0.1:27017',
+  dbURL: 'mongodb+srv://miss_toy:1234@cluster0.ivkcjm9.mongodb.net/codeblock_db?retryWrites=true&w=majority',
   dbName : 'codeblock_db'
 }
 
-// mongodb+srv://estherkaptsan:YVEDg8IaGG0hiYCH@cluster0.jmkigdj.mongodb.net/?retryWrites=true&w=majority
+//mongodb+srv://miss_toy:1234@cluster0.ivkcjm9.mongodb.net/codeblock_db?retryWrites=true&w=majority
 // dbURL: 'mongodb://127.0.0.1:27017',
