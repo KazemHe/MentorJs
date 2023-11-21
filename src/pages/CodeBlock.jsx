@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import AceEditor from "react-ace";
 import { saveCodeBlock } from "../store/actions/codeBlockActions";
@@ -7,13 +7,13 @@ import { codeBlockesService } from "../services/code.block.service";
 import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/theme-solarized_light";
 import "ace-builds/src-noconflict/mode-javascript";
-import 'ace-builds/src-noconflict/ext-language_tools';
+import "ace-builds/src-noconflict/ext-language_tools";
 
 import { styled } from "@mui/system";
 import { Button, Switch, Grid, Typography } from "@mui/material";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
-
+import { useSocket } from "../services/socketService";
 const PreContainer = styled("div")({
   height: "93",
   display: "flex",
@@ -29,8 +29,9 @@ function CodeBlock({ codeBlocks }) {
   const dispatch = useDispatch();
   const { instruction, starter } = codeBlock;
   const [editedCode, setEditedCode] = useState(starter);
-  const [isMentor, setIsMentor] = useState(false);
+  const [isMentor, setIsMentor] = useState(true);
   const [isLightMode, setIsLightMode] = useState(false);
+  const socket = useSocket(id, setCodeBlock, setIsMentor);
 
   useEffect(() => {
     setEditedCode(starter);
@@ -51,6 +52,8 @@ function CodeBlock({ codeBlocks }) {
 
   function handleChange(newCode) {
     setEditedCode((prev) => (prev, newCode)); // Update the state with the new code
+    socket.emit('code editing', { ...codeBlock, code: newCode });
+
   }
 
   // function handleChange(newCode) {

@@ -1,5 +1,7 @@
 import Axios from 'axios'
 
+export const serverUrl =process.env.NODE_ENV === 'production' ? '/' : 'http://localhost:3030';
+
 const BASE_URL = process.env.NODE_ENV === 'production'
     ? '/api/'
     : '//localhost:3030/api/'
