@@ -15,13 +15,14 @@ async function getCodeBlockById(req, res) {
     const codeBlock = await codeBlockService.getById(codeBlockId);
     res.json(codeBlock);
   } catch (err) {
-    res.status(500).send({ err: 'Failed to get codeBlock' });
+    res.status(500).send({ err: 'Failed to get codeBlock by id' });
   }
 }
 
 async function updateCodeBlock(req, res) {
   try {
     const codeBlock = req.body;
+    console.log ('codeBlock',codeBlock)
     const updatedCodeBlock = await codeBlockService.update(codeBlock);
     res.json(updatedCodeBlock);
   } catch (err) {
@@ -31,7 +32,7 @@ async function updateCodeBlock(req, res) {
 }
 
 module.exports = {
-  getCodeBlockById,
   getCodeBlocks,
-  updateCodeBlock,
+  getCodeBlockById,
+  updateCodeBlock
 };

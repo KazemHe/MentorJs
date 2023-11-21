@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser')
 
 const app = express()
 const http = require('http').createServer(app)
+app.use(express.static('public'));
 
 // Express App Config
 app.use(cookieParser())
@@ -21,18 +22,15 @@ if (process.env.NODE_ENV === 'production') {
     app.use(cors(corsOptions))
 }
 
-const authRoutes = require('./api/auth/auth.routes')
-const userRoutes = require('./api/user/user.routes')
-const photoRoutes = require('./api/photo/photo.routes')
+const codeblockRoutes = require('./api/codeblock/codeblock.routes')
 
 
 // routes
-const setupAsyncLocalStorage = require('./middlewares/setupAls.middleware')
-app.all('*', setupAsyncLocalStorage)
+// const setupAsyncLocalStorage = require('./middlewares/setupAls.middleware')
+// app.all('*', setupAsyncLocalStorage)
 
-app.use('/api/auth', authRoutes)
-app.use('/api/user', userRoutes)
-app.use('/api/photo', photoRoutes)
+// app.use('/api/auth', authRoutes)
+app.use('/api/codeblock', codeblockRoutes)
 
 // Make every server-side-route to match the index.html
 // so when requesting http://localhost:3030/index.html/photo/123 it will still respond with
@@ -42,8 +40,8 @@ app.get('/**', (req, res) => {
 })
 
 
-const logger = require('./services/logger.service')
+// const logger = require('./services/logger.service')
 const port = process.env.PORT || 3030
 http.listen(port, () => {
-    logger.info('Server is running on port: ' + port)
+    console.log('Server is running on port: ' + port)
 })

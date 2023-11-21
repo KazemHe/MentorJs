@@ -15,7 +15,7 @@ function Lobby() {
   useEffect(() => {
     dispatch(loadCodeBlocks());
   }, [dispatch]);
-
+  console.log('codeBlocks',codeBlocks)
   // Check if codeBlocks is undefined or an empty array before mapping
   if (!codeBlocks || codeBlocks.length === 0) {
     return (
@@ -28,7 +28,7 @@ function Lobby() {
   return (
     <div className="lobby-container">
       <Grid container spacing={2} justifyContent="center">
-        {codeBlocks.map((block, index) => (
+        {Array.isArray(codeBlocks) && codeBlocks.map((block, index) => (
           <Grid key={index} item xs={12} sm={6} md={4} lg={4}>
             <Link to={`/code/${block._id}`} className="code-block-item">
               <div className="block-item">

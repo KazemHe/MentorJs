@@ -3,7 +3,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 async function query() {
   try {
-    const collection = await dbService.getCollection('codes');
+    const collection = await dbService.getCollection('codeblock');
     var codeBlocks = await collection.find().toArray();
     return codeBlocks;
   } catch (err) {
@@ -14,7 +14,7 @@ async function query() {
 
 async function getById(codeBlockId) {
   try {
-    const collection = await dbService.getCollection('codes');
+    const collection = await dbService.getCollection('codeblock');
     const codeBlock = await collection.findOne({
       _id: new ObjectId(codeBlockId),
     });
@@ -27,13 +27,13 @@ async function getById(codeBlockId) {
 
 async function update(codeBlock) {
   try {
-    const collection = await dbService.getCollection('codes');
+    const collection = await dbService.getCollection('codeblock');
     await collection.updateOne(
       { _id: new ObjectId(codeBlock._id) },
       {
         $set: {
-          title: codeBlock.title,
-          code: codeBlock.code,
+          // title: codeBlock.title,
+          starter: codeBlock.starter,
         },
       }
     );
