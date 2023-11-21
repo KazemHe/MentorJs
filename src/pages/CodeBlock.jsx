@@ -31,7 +31,7 @@ function CodeBlock({ codeBlocks }) {
   const [editedCode, setEditedCode] = useState(starter);
   const [isMentor, setIsMentor] = useState(true);
   const [isLightMode, setIsLightMode] = useState(false);
-  const socket = useSocket(id, setCodeBlock, setIsMentor);
+  const socket = useSocket(id, setCodeBlock, setIsMentor, setEditedCode);
 
   useEffect(() => {
     setEditedCode(starter);
@@ -51,17 +51,17 @@ function CodeBlock({ codeBlocks }) {
   }
 
   function handleChange(newCode) {
+    console.log("client send info", newCode);
     setEditedCode((prev) => (prev, newCode)); // Update the state with the new code
-    socket.emit('code editing', { ...codeBlock, code: newCode });
-
+    socket.emit("code editing", { ...codeBlock, code: newCode });
   }
 
-  // function handleChange(newCode) {
-  //   setEditedCode(newCode); // Update the state with the new code as a string
-  // }
-
   const handleSave = () => {
-    const isCorrect = editedCode === codeBlock.solution;
+    const removeWhiteSpaces = (str) => str.replace(/\s/g, ""); // removing the white spaces
+    const editedCodeWithoutSpaces = removeWhiteSpaces(editedCode);
+    const solutionWithoutSpaces = removeWhiteSpaces(codeBlock.solution);
+
+    const isCorrect = editedCodeWithoutSpaces === solutionWithoutSpaces;
 
     dispatch(saveCodeBlock({ ...codeBlock, starter: editedCode }));
 

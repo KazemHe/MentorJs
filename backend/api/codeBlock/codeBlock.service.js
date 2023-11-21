@@ -34,6 +34,7 @@ async function update(codeBlock) {
         $set: {
           // title: codeBlock.title,
           starter: codeBlock.starter,
+          code :codeBlock.code
         },
       }
     );
