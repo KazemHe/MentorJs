@@ -31,6 +31,7 @@ function CodeBlock({ codeBlocks }) {
   const [isMentor, setIsMentor] = useState(true);
   const [isLightMode, setIsLightMode] = useState(false);
   const socket = useSocket(id, setCodeBlock, setIsMentor, setEditedCode);
+  const [isCodeCorrect, setIsCodeCorrect] = useState(false);
 
   useEffect(() => {
     setEditedCode(starter);
@@ -66,9 +67,11 @@ function CodeBlock({ codeBlocks }) {
     if (isCorrect) {
       console.log("Code is correct!");
       // Show a message or perform an action for a correct answer
+      setIsCodeCorrect(true); // Set the state to indicate the code is correct
     } else {
       // Show a message or perform an action for an incorrect answer
       console.log("Code is incorrect!");
+      setIsCodeCorrect(false); // Reset the state if the code is incorrect
     }
   };
 
@@ -109,6 +112,12 @@ function CodeBlock({ codeBlocks }) {
       >
         {instruction}
       </Typography>
+      {/* Display a big smiley face if the code is correct */}
+      {isCodeCorrect && (
+        <div style={{ fontSize: "10rem", marginTop: "20px" }}>
+          &#128515; {/* Unicode for a smiley face */}
+        </div>
+      )}
       <AceEditor
         mode="javascript"
         theme={isLightMode ? "solarized_light" : "monokai"}
@@ -131,7 +140,6 @@ function CodeBlock({ codeBlocks }) {
           padding: "1rem",
         }}
       />
-
       <div className="code-block-buttons">
         <Button variant="text" onClick={handleSave}>
           Check Your Answer
