@@ -10,7 +10,7 @@ export default function Header() {
         Mentor Js
       </Link>
       <div className='github-icon'>
-        <Link to={`github.com`} className='github-link'>
+        <Link to={`https://github.com/KazemHe/MentorJs`} className='github-link'>
           <GitHubIcon />
         </Link>
       </div>

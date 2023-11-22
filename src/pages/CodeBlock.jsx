@@ -13,6 +13,8 @@ import { Button, Switch, Grid, Typography } from "@mui/material";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import { useSocket } from "../services/socketService";
+import CustomModal from "../cmps/answerCheck";
+
 const PreContainer = styled("div")({
   height: "93",
   display: "flex",
@@ -31,7 +33,9 @@ function CodeBlock({ codeBlocks }) {
   const [isMentor, setIsMentor] = useState(true);
   const [isLightMode, setIsLightMode] = useState(false);
   const socket = useSocket(id, setCodeBlock, setIsMentor, setEditedCode);
-  const [isCodeCorrect, setIsCodeCorrect] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCorrectAnswer, setIsCorrectAnswer] = useState(false); // New state for correctness
+
 
   useEffect(() => {
     setEditedCode(starter);
@@ -65,13 +69,16 @@ function CodeBlock({ codeBlocks }) {
     dispatch(saveCodeBlock({ ...codeBlock, starter: editedCode }));
 
     if (isCorrect) {
-      console.log("Code is correct!");
       // Show a message or perform an action for a correct answer
-      setIsCodeCorrect(true); // Set the state to indicate the code is correct
+      console.log("Code is correct!"); 
+      setIsCorrectAnswer(true); // Set state for correct answer
+      openModal();
+
     } else {
       // Show a message or perform an action for an incorrect answer
       console.log("Code is incorrect!");
-      setIsCodeCorrect(false); // Reset the state if the code is incorrect
+      setIsCorrectAnswer(false); // Set state for incorrect answer
+      openModal();
     }
   };
 
@@ -83,6 +90,13 @@ function CodeBlock({ codeBlocks }) {
     setIsLightMode(!isLightMode);
   };
 
+  function openModal() {
+    setIsModalOpen(true);
+  }
+
+  function closeModal() {
+    setIsModalOpen(false);
+  }
   return (
     <PreContainer>
       <Grid container alignItems="center" justifyContent="center" spacing={1}>
@@ -112,12 +126,7 @@ function CodeBlock({ codeBlocks }) {
       >
         {instruction}
       </Typography>
-      {/* Display a big smiley face if the code is correct */}
-      {isCodeCorrect && (
-        <div style={{ fontSize: "10rem", marginTop: "20px" }}>
-          &#128515; {/* Unicode for a smiley face */}
-        </div>
-      )}
+      <CustomModal open={isModalOpen} handleClose={closeModal} />
       <AceEditor
         mode="javascript"
         theme={isLightMode ? "solarized_light" : "monokai"}
