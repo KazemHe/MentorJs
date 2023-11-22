@@ -15,7 +15,6 @@ function Lobby() {
   useEffect(() => {
     dispatch(loadCodeBlocks());
   }, [dispatch]);
-  console.log('codeBlocks',codeBlocks)
   // Check if codeBlocks is undefined or an empty array before mapping
   if (!codeBlocks || codeBlocks.length === 0) {
     return (

@@ -8,7 +8,6 @@ import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/theme-solarized_light";
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/ext-language_tools";
-
 import { styled } from "@mui/system";
 import { Button, Switch, Grid, Typography } from "@mui/material";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
@@ -51,7 +50,6 @@ function CodeBlock({ codeBlocks }) {
   }
 
   function handleChange(newCode) {
-    console.log("client send info", newCode);
     setEditedCode((prev) => (prev, newCode)); // Update the state with the new code
     socket.emit("code editing", { ...codeBlock, code: newCode });
   }
@@ -69,8 +67,8 @@ function CodeBlock({ codeBlocks }) {
       console.log("Code is correct!");
       // Show a message or perform an action for a correct answer
     } else {
-      console.log("Code is incorrect!");
       // Show a message or perform an action for an incorrect answer
+      console.log("Code is incorrect!");
     }
   };
 
