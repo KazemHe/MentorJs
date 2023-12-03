@@ -9,7 +9,7 @@ import "ace-builds/src-noconflict/theme-solarized_light";
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/ext-language_tools";
 import { styled } from "@mui/system";
-import { Button, Grid, Switch ,Typography } from "@mui/material";
+import { Button, Grid ,Typography } from "@mui/material";
 import MaterialUISwitch from '../cmps/swich';
 import { useSocket } from "../services/socketService";
 import CustomModal from "../cmps/answerCheck";
