@@ -1,21 +1,24 @@
 import React from "react";
-import { Box, Modal, Button } from "@mui/material";
+import { Box, Modal, Button, useMediaQuery } from "@mui/material";
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  pt: 2,
-  px: 4,
-  pb: 3,
-};
+const CustomModal = ({ open, handleClose, isCorrect }) => {
+  const isMobile = useMediaQuery('(max-width:500px)'); // Adjust breakpoint as needed
 
-function CustomModal({ open, handleClose, isCorrect }) {
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: isMobile ? '80%' : 400, // Adjust width for mobile
+    maxWidth: '90%', // Set maximum width
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    pt: 2,
+    px: 4,
+    pb: 3,
+  };
+
   let title, description, emoji;
 
   if (isCorrect) {
@@ -40,7 +43,7 @@ function CustomModal({ open, handleClose, isCorrect }) {
         <p id="modal-description">
           {description}
         </p>
-        <div style={{ fontSize: "5rem", textAlign: "center" }}>
+        <div style={{ fontSize: isMobile ? "3rem" : "5rem", textAlign: "center" }}>
           {emoji}
         </div>
         <Button onClick={handleClose}>Close</Button>

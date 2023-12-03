@@ -14,9 +14,10 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import { useSocket } from "../services/socketService";
 import CustomModal from "../cmps/answerCheck";
+import '../assets/style/pages/CodeBlock.scss'
 
 const PreContainer = styled("div")({
-  height: "93",
+  height: "96vh",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -35,7 +36,6 @@ function CodeBlock({ codeBlocks }) {
   const socket = useSocket(id, setCodeBlock, setIsMentor, setEditedCode);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(false); // New state for correctness
-
 
   useEffect(() => {
     setEditedCode(starter);
@@ -70,10 +70,9 @@ function CodeBlock({ codeBlocks }) {
 
     if (isCorrect) {
       // Show a message or perform an action for a correct answer
-      console.log("Code is correct!"); 
+      console.log("Code is correct!");
       setIsCorrectAnswer(true); // Set state for correct answer
       openModal();
-
     } else {
       // Show a message or perform an action for an incorrect answer
       console.log("Code is incorrect!");
@@ -99,6 +98,7 @@ function CodeBlock({ codeBlocks }) {
   }
   return (
     <PreContainer>
+      <h4 style={{color : "#fff"}}>Welcome {isMentor ? 'Mentor' : 'Student'}</h4>
       <Grid container alignItems="center" justifyContent="center" spacing={1}>
         <Grid item>
           <DarkModeOutlinedIcon
@@ -122,11 +122,12 @@ function CodeBlock({ codeBlocks }) {
         style={{
           color: isLightMode ? "#fff" : "rgb(182 172 172)",
           marginBottom: "10px",
+          padding : "5px",
         }}
       >
         {instruction}
       </Typography>
-      <CustomModal open={isModalOpen} handleClose={closeModal} />
+      <CustomModal open={isModalOpen} handleClose={closeModal} isCorrect={isCorrectAnswer}/>
       <AceEditor
         mode="javascript"
         theme={isLightMode ? "solarized_light" : "monokai"}
@@ -143,18 +144,19 @@ function CodeBlock({ codeBlocks }) {
         }}
         style={{
           width: "80%",
-          maxWidth: "800px",
+          maxWidth: "600px",
           border: "1px solid #555",
           borderRadius: "4px",
           padding: "1rem",
+          maxHeight :"410px"
         }}
       />
-      <div className="code-block-buttons">
-        <Button variant="text" onClick={handleSave}>
-          Check Your Answer
-        </Button>
-        <Button variant="text" onClick={goBack}>
+      <div className="code-block-buttons" style={{ display: "flex" }}>
+        <Button variant="text" onClick={goBack} sx={{padding: "1rem 5rem",}}>
           Back
+        </Button>
+        <Button variant="text" onClick={handleSave} sx={{padding: "1rem 3rem",}}>
+          Check Your Answer
         </Button>
       </div>
     </PreContainer>

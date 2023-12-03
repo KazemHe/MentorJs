@@ -4,6 +4,7 @@ module.exports = function (io) {
   io.on("connection", (socket) => {
     socket.on("join room", (room) => {
       socket.join(room);
+      console.log('room', rooms[room])
       rooms[room] = rooms[room] ? rooms[room] + 1 : 1;
       console.log(`User joined room: ${room}. Users in room: ${rooms[room]}`);
 
