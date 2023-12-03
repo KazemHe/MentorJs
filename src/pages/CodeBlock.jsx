@@ -9,9 +9,8 @@ import "ace-builds/src-noconflict/theme-solarized_light";
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/ext-language_tools";
 import { styled } from "@mui/system";
-import { Button, Switch, Grid, Typography } from "@mui/material";
-import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
+import { Button, Grid, Switch ,Typography } from "@mui/material";
+import MaterialUISwitch from '../cmps/swich';
 import { useSocket } from "../services/socketService";
 import CustomModal from "../cmps/answerCheck";
 import '../assets/style/pages/CodeBlock.scss'
@@ -101,20 +100,10 @@ function CodeBlock({ codeBlocks }) {
       <h4 style={{color : "#fff"}}>Welcome {isMentor ? 'Mentor' : 'Student'}</h4>
       <Grid container alignItems="center" justifyContent="center" spacing={1}>
         <Grid item>
-          <DarkModeOutlinedIcon
-            style={{ color: isLightMode ? "#555" : "#fff" }}
-          />
-        </Grid>
-        <Grid item>
-          <Switch
+          <MaterialUISwitch
             checked={isLightMode}
             onChange={toggleLightMode}
             color="primary"
-          />
-        </Grid>
-        <Grid item>
-          <LightModeOutlinedIcon
-            style={{ color: isLightMode ? "#fff" : "#555" }}
           />
         </Grid>
       </Grid>
