@@ -103,7 +103,6 @@ function CodeBlock({ codeBlocks }) {
           <MaterialUISwitch
             checked={isLightMode}
             onChange={toggleLightMode}
-            color="primary"
           />
         </Grid>
       </Grid>
