@@ -26,6 +26,7 @@ function Lobby() {
 
   return (
     <div className="lobby-container">
+      <h2 className="lobby-title">choose coding exercise </h2>
       <Grid container spacing={2} justifyContent="center">
         {Array.isArray(codeBlocks) && codeBlocks.map((block, index) => (
           <Grid key={index} item xs={12} sm={6} md={4} lg={4}>
