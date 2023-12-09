@@ -37,7 +37,7 @@ Check out the live demo of the application [here](https://mentorjs.onrender.com/
 ## Screenshots
 
 ### Lobby Page
-<img width="550" heigth="500" alt="homePage DES" src="https://github.com/KazemHe/MentorJs/assets/123581188/592877dc-681d-4ff9-8703-7d10360b0e36">
+<img width="550" heigth="550" alt="homePage DES" src="https://github.com/KazemHe/MentorJs/assets/123581188/592877dc-681d-4ff9-8703-7d10360b0e36">
 <img width="120" alt="lobbyMobile" src="https://github.com/KazemHe/MentorJs/assets/123581188/1ab4fd21-8cd1-4bd9-830c-2bc7b9e53a0e">
 
 ### Code Block Page (Mentor View)
@@ -56,17 +56,17 @@ To run the project locally, follow these steps:
    ```bash
    git clone https://github.com/KazemHe/MentorJs.git
 
-Install dependencies for the frontend:
-   ```bash
--cd MentorJs
--npm install
--npm start
+**Install dependencies for the frontend:
+   
+cd MentorJs
+npm install
+npm start
 
-Run the server for backend functionalities:
-   ```bash
--cd backend
--npm install
--npm start
+**Run the server for backend functionalities:
+  
+cd backend
+npm install
+npm start
 
 
    
