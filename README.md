@@ -9,9 +9,10 @@ This project allows mentors to share code blocks in JavaScript with their mentee
 - Lobby page for code block selection
 - Code block pages for mentor-student interactions
 - Real-time code changes using Socket.io
-- Syntax highlighting using Highlight.js
 - Mentor views with read-only code blocks and student views with code editing
-- Bonus feature: Displaying a smiley face when the student's code matches the solution
+- Customized editor using Ace Editor for code editing
+- Dark mode and light mode options for user preference
+- Modal for checking answers: Congratulates for correct answers and try again for wrong answers
 
 ## Live Demo
 
@@ -33,6 +34,19 @@ Check out the live demo of the application [here](https://mentorjs.onrender.com/
   - Socket.io
   - MongoDB (for the Database)
 
+
+##Screenshots :
+Lobby Page : <img width="945" alt="homePage DES" src="https://github.com/KazemHe/MentorJs/assets/123581188/592877dc-681d-4ff9-8703-7d10360b0e36"> <img width="184" alt="lobbyMobile" src="https://github.com/KazemHe/MentorJs/assets/123581188/1ab4fd21-8cd1-4bd9-830c-2bc7b9e53a0e">
+
+
+Code Block Page (Mentor View) :
+<img width="954" alt="codeblock desk" src="https://github.com/KazemHe/MentorJs/assets/123581188/4f308bcb-60d5-42f7-8323-bb370f69d79c"><img width="957" alt="lightmode desk" src="https://github.com/KazemHe/MentorJs/assets/123581188/79d8def2-7cc0-451d-b555-d0c40be7699b">
+
+Modal for Checking Answers :
+<img width="187" alt="currect anwer mobile" src="https://github.com/KazemHe/MentorJs/assets/123581188/215a6ee2-ec8e-4688-9031-6a4ab62cfcf3"><img width="954" alt="wronganswer" src="https://github.com/KazemHe/MentorJs/assets/123581188/4a171d05-0ef4-4e08-b478-38314a8fc459">
+
+
+
 ## Setup Instructions
 
 To run the project locally, follow these steps:
@@ -44,15 +58,15 @@ To run the project locally, follow these steps:
 
 Install dependencies for the frontend:
 
-
-cd MentorJs
-npm install
-npm start
+-cd MentorJs
+-npm install
+-npm start
 
 Run the server for backend functionalities:
 
-cd backend
-npm install
-npm start
+-cd backend
+-npm install
+-npm start
 
 
+   
