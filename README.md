@@ -56,14 +56,13 @@ To run the project locally, follow these steps:
    ```bash
    git clone https://github.com/KazemHe/MentorJs.git
 
-**Install dependencies for the frontend:
-**    
+## Install dependencies for the frontend:
+    
 1)cd MentorJs
 2)npm install
 3)npm start
 
-**Run the server for backend functionalities:
-**
+## Run the server for backend functionalities:
 1)cd backend
 2)npm install
 3)npm start
