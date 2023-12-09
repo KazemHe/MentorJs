@@ -36,7 +36,7 @@ Check out the live demo of the application [here](https://mentorjs.onrender.com/
 
 
 ##Screenshots :
-Lobby Page : <img width="945" alt="homePage DES" src="https://github.com/KazemHe/MentorJs/assets/123581188/592877dc-681d-4ff9-8703-7d10360b0e36"> <img width="184" alt="lobbyMobile" src="https://github.com/KazemHe/MentorJs/assets/123581188/1ab4fd21-8cd1-4bd9-830c-2bc7b9e53a0e">
+Lobby Page : <img width="945" alt="homePage DES" src="https://github.com/KazemHe/MentorJs/assets/123581188/592877dc-681d-4ff9-8703-7d10360b0e36"><img width="184" alt="lobbyMobile" src="https://github.com/KazemHe/MentorJs/assets/123581188/1ab4fd21-8cd1-4bd9-830c-2bc7b9e53a0e">
 
 
 Code Block Page (Mentor View) :
