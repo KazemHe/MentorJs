@@ -58,15 +58,15 @@ To run the project locally, follow these steps:
 
 **Install dependencies for the frontend:
 **    
--cd MentorJs
--npm install
--npm start
+1)cd MentorJs
+2)npm install
+3)npm start
 
 **Run the server for backend functionalities:
 **
--cd backend
--npm install
--npm start
+1)cd backend
+2)npm install
+3)npm start
 
 
    
